@@ -15,25 +15,30 @@ import Link from 'next/link';
 
 interface NavItemProps {
   icon: React.ComponentType<any>;
+  label: string;
   active?: boolean;
 }
 
-const NavItem = ({ icon: Icon, active = false }: NavItemProps) => (
+const NavItem = ({ icon: Icon, label, active = false }: NavItemProps) => (
   <Link 
     href="#" 
-    className={`p-3 rounded-2xl transition-all duration-200 flex items-center justify-center ${
+    className={`p-3 rounded-2xl transition-all duration-200 flex items-center justify-center relative group ${
       active 
         ? 'bg-[#FCD34D] text-gray-900 shadow-md shadow-amber-200/50' 
         : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
     }`}
   >
     <Icon size={20} className={active ? "stroke-[2.5]" : "stroke-[1.8]"} />
+    <span className="absolute left-full ml-3 px-2.5 py-1 bg-gray-800 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none shadow-lg">
+      {label}
+      <span className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-gray-800"></span>
+    </span>
   </Link>
 );
 
 const Sidebar = () => {
   return (
-    <aside className="hidden md:flex flex-col w-[72px] h-[calc(100vh-32px)] sticky top-4 items-center py-4 justify-between z-30 gap-6">
+    <aside className="hidden md:flex flex-col w-[72px] h-[calc(100vh-32px)] fixed top-4 left-4 items-center py-4 justify-between z-30 gap-6">
       <div className="flex flex-col items-center gap-6 w-full">
         {/* Logo - Teal */}
         <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
@@ -55,18 +60,18 @@ const Sidebar = () => {
         </div>
 
         <nav className="flex flex-col items-center gap-2 w-[60px] bg-white rounded-full py-4 shadow-sm border border-gray-100/50">
-          <NavItem icon={Home} />
-          <NavItem icon={LayoutDashboard} active />
-          <NavItem icon={CheckSquare} />
-          <NavItem icon={Users} />
-          <NavItem icon={Calendar} />
+          <NavItem icon={Home} label="Home" />
+          <NavItem icon={LayoutDashboard} label="Dashboard" active />
+          <NavItem icon={CheckSquare} label="Tasks" />
+          <NavItem icon={Users} label="Team" />
+          <NavItem icon={Calendar} label="Calendar" />
         </nav>
       </div>
 
       <div className="flex flex-col items-center gap-2 w-[60px] bg-white rounded-full py-4 shadow-sm border border-gray-100/50">
-        <NavItem icon={Settings} />
-        <NavItem icon={Headphones} />
-        <NavItem icon={LogOut} />
+        <NavItem icon={Settings} label="Settings" />
+        <NavItem icon={Headphones} label="Support" />
+        <NavItem icon={LogOut} label="Logout" />
       </div>
     </aside>
   );

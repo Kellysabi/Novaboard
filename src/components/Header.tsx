@@ -106,12 +106,18 @@ const Header = () => {
         {/* Right Side: Notification Bell & Profile Dropdown — shared border */}
         <div className="flex items-center flex-shrink-0">
           <div className="flex items-center gap-1 bg-white border border-gray-200/80 rounded-2xl px-1.5 py-1 shadow-sm">
-            <button className="p-2 text-gray-400 hover:text-gray-600 rounded-xl transition-all relative">
+            <button className="p-2 text-gray-400 hover:text-gray-600 rounded-xl transition-all relative group">
               <Bell size={18} className="stroke-[2]" />
               <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-[#FCD34D] rounded-full"></span>
+              
+              {/* Notification Tooltip */}
+              <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-gray-800 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none shadow-lg z-50">
+                Notifications
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-gray-800"></span>
+              </span>
             </button>
             <div className="w-px h-6 bg-gray-200/80"></div>
-            <button className="flex items-center gap-2 pl-2 py-1 pr-2 hover:bg-gray-50 rounded-xl transition-all">
+            <button className="flex items-center gap-2 pl-2 py-1 pr-2 hover:bg-gray-50 rounded-xl transition-all relative group">
               <img 
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face" 
                 alt="John Doe" 
@@ -119,6 +125,12 @@ const Header = () => {
               />
               <span className="text-xs font-semibold text-gray-700 hidden md:inline">John Doe</span>
               <ChevronDown size={14} className="text-gray-400 hidden sm:block" />
+              
+              {/* Profile Tooltip */}
+              <span className="absolute top-full mt-2 right-0 px-2.5 py-1 bg-gray-800 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none shadow-lg z-50">
+                Profile
+                <span className="absolute bottom-full right-4 border-4 border-transparent border-b-gray-800"></span>
+              </span>
             </button>
           </div>
         </div>
