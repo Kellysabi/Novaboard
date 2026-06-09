@@ -85,9 +85,10 @@ const Header = () => {
   );
 
   return (
-    <header className="w-full px-4 md:px-8 pt-4 md:pt-6 pb-2 flex flex-col gap-4 md:gap-5 relative z-40">
+    <header className="contents md:flex w-full flex-col relative z-40 md:sticky md:top-0 md:bg-[#EAF2F5] md:px-8 md:pt-6 md:pb-2 md:gap-5">
       {/* ========== ROW 1: Mobile-First Navbar ========== */}
-      <div className="flex items-center justify-between gap-3 md:gap-4 w-full">
+      <div className="sticky top-0 z-50 bg-[#EAF2F5] px-4 pt-4 pb-2 w-full md:p-0 md:static">
+        <div className="flex items-center justify-between gap-3 md:gap-4 w-full">
         
         {/* Left Side: Mobile Logo */}
         <div className="md:hidden flex items-center justify-center flex-shrink-0">
@@ -166,9 +167,10 @@ const Header = () => {
         </button>
 
       </div>
+      </div>
 
       {/* ========== ROW 2: Project Title, Metadata & Action Buttons ========== */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 px-4 mt-2 md:p-0 md:mt-0">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           
           {/* Title & Metadata */}
@@ -249,7 +251,7 @@ const Header = () => {
         </div>
 
         {/* ========== ROW 3: Tab Bar Navigation (floating white pill container) ========== */}
-        <div className="w-full">
+        <div className="w-full px-4 mt-4 md:p-0 md:mt-0">
           <div className="flex items-center justify-between md:justify-start gap-0.5 md:gap-1 bg-white rounded-full p-1 md:px-2 md:py-1.5 shadow-sm border border-gray-100/50 w-full md:w-fit">
             <Tab icon={LayoutGrid} label="Overview" />
             <Tab icon={List} label="List" />
@@ -262,7 +264,7 @@ const Header = () => {
       </div>
 
       {/* ========== ROW 4: Board Filter Search Bar + Sort/Filter + Add New Task ========== */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-0">
+      <div className="sticky top-[64px] z-40 bg-[#EAF2F5] px-4 py-3 mt-4 w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100/50 shadow-sm md:p-0 md:mt-0 md:static md:border-none md:shadow-none">
         
         {/* Left Side: Filter inputs */}
         <div className="flex flex-wrap items-center gap-3">

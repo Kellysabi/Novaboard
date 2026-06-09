@@ -11,7 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="flex min-h-screen bg-[#EAF2F5] font-sans antialiased text-gray-600 w-full overflow-x-hidden">
+    <div className="flex min-h-screen bg-[#EAF2F5] font-sans antialiased text-gray-600 w-full">
       <AnimatePresence>
         {loading && <SplashScreen onComplete={() => setLoading(false)} />}
       </AnimatePresence>
