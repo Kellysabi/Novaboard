@@ -22,10 +22,10 @@ interface NavItemProps {
 const NavItem = ({ icon: Icon, label, active = false }: NavItemProps) => (
   <Link 
     href="#" 
-    className={`p-3 rounded-2xl transition-all duration-200 flex items-center justify-center relative group ${
+    className={`p-3 transition-all duration-200 flex items-center justify-center relative group ${
       active 
-        ? 'bg-[#FCD34D] text-gray-900 shadow-md shadow-amber-200/50' 
-        : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
+        ? 'rounded-full bg-[#FCD34D] text-gray-900 shadow-md shadow-amber-200/50' 
+        : 'rounded-2xl text-gray-400 hover:text-gray-600 hover:bg-gray-50'
     }`}
   >
     <Icon size={20} className={active ? "stroke-[2.5]" : "stroke-[1.8]"} />
